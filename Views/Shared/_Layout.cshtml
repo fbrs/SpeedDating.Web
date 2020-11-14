@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SpeedDating.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/AdminLTE/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome-4.7/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/mainStyle.css" />
+</head>
+<body>
+
+
+    <section class="content login-page">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </section>
+    <!-- /.content -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/AdminLTE/js/adminlte.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

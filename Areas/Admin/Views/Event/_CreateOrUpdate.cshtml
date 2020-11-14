@@ -1,0 +1,117 @@
+﻿@model EventModel
+@using SpeedDating.Web.Areas.Admin.Models.Event
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-info"></i> Info
+            </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="form-group row text-center">
+                        <div class="col-md-12 gender-holder">
+                            <label class="pr-5">
+                                <input id="@Html.IdFor(model => model.EventType)" type="radio" name="@Html.IdFor(model => model.EventType)" value="@EventType.GIRLANDGIRL" >
+                                <img src="~/images/GirlAndGirl.png" width="70">
+                            </label>
+                            <label class="pr-5">
+                                <input id="@Html.IdFor(model => model.EventType)" type="radio" name="@Html.IdFor(model => model.EventType)" value="@EventType.BOYANDGIRL" checked >
+                                <img src="~/images/BoyAndGirl.png" width="70">
+                            </label>
+                            <label>
+                                <input id="@Html.IdFor(model => model.EventType)" type="radio" name="@Html.IdFor(model => model.EventType)" value="@EventType.BOYANDBOY">
+                                <img src="~/images/BoyAndBoy.png" width="70">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Name"></label>
+                        </div>
+                        <div class="col-md-9">
+                            <input asp-for="Name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Description"></label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea asp-for="Description" class="form-control">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="EventDate"></label>
+                        </div>
+                        <div class="col-md-5">
+                            <input asp-for="EventDate" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-money"></i> Ceny
+            </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Capacity"></label>
+                        </div>
+                        <div class="col-md-5">
+                            <input asp-for="Capacity" class="form-control" type="number" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="WomanPrice"></label>
+                        </div>
+                        <div class="col-md-5">
+                            <input asp-for="WomanPrice" class="form-control" type="number" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="ManPrice"></label>
+                        </div>
+                        <div class="col-md-5">
+                            <input asp-for="ManPrice" class="form-control" type="number" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('input[type=radio][name=@Html.IdFor(model => model.EventType)]').change(function () {
+
+        console.log(this.value)
+
+        if (this.value == '@EventType.BOYANDBOY') {
+            $('#@Html.IdFor(model => model.WomanPrice)').attr('disabled', 'disabled');
+            $('#@Html.IdFor(model => model.WomanPrice)').val("");
+            $('#@Html.IdFor(model => model.ManPrice)').removeAttr('disabled');
+        }
+        else if (this.value == '@EventType.GIRLANDGIRL') {
+            $('#@Html.IdFor(model => model.ManPrice)').attr('disabled', 'disabled');
+            $('#@Html.IdFor(model => model.ManPrice)').val("");
+            $('#@Html.IdFor(model => model.WomanPrice)').removeAttr('disabled');
+        }
+        else if (this.value == '@EventType.BOYANDGIRL') {
+            $('#@Html.IdFor(model => model.ManPrice)').removeAttr('disabled');
+            $('#@Html.IdFor(model => model.WomanPrice)').removeAttr('disabled');
+        }
+
+    })
+</script>

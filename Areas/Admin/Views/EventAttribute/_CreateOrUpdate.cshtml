@@ -1,0 +1,76 @@
+﻿@model EventAttributeModel
+@using SpeedDating.Web.Areas.Admin.Models.Event
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-info"></i> Info
+            </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="form-group row">
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(model => model.WoocommerceId)
+                        <div class="col-md-3">
+                            <label asp-for="Name"></label>
+                        </div>
+                        <div class="col-md-9">
+                            <input asp-for="Name" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-cog"></i> Možnosti události
+            </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div id="attributes">
+                        @foreach (var item in Model.EventAttributeOptions)
+                        {
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <label asp-for="EventAttributeOptions"></label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input name="@Html.IdFor(model => model.EventAttributeOptions)" class="form-control" value="@item"/>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-primary" id="add-option-btn" type="button"><i class="fa fa-plus-circle"></i> Přidat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<template>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label asp-for="EventAttributeOptions"></label>
+        </div>
+        <div class="col-md-9">
+            <input name="@Html.IdFor(model => model.EventAttributeOptions)" class="form-control" />
+        </div>
+    </div>
+</template>
+
+<script>
+    $('#add-option-btn').click(function () {
+        var temp = document.getElementsByTagName("template")[0];
+        var clon = temp.content.cloneNode(true);
+        document.getElementById('attributes').appendChild(clon);
+    });
+</script>

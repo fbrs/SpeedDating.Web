@@ -1,0 +1,30 @@
+﻿.login-form{
+    width: 25%;
+}
+
+.login-page{
+    background-color: lightgrey;
+}
+
+.gender-holder {
+    label {
+        [type=radio] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        [type=radio] + img {
+            cursor: pointer;
+        }
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            filter: grayscale(0%) ;
+        }
+
+        img {
+            filter: grayscale(100%) brightness(0);
+        }
+    }
+}

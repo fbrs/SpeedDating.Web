@@ -1,0 +1,1 @@
+﻿.login-form{width:25%;}.login-page{background-color:#d3d3d3;}.gender-holder label [type=radio]{position:absolute;opacity:0;width:0;height:0;}.gender-holder label [type=radio]+img{cursor:pointer;}.gender-holder label [type=radio]:checked+img{filter:grayscale(0%);}.gender-holder label img{filter:grayscale(100%) brightness(0);}

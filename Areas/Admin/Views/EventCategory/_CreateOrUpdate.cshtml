@@ -1,0 +1,41 @@
+﻿@model EventCategoryModel
+@using SpeedDating.Web.Areas.Admin.Models.Event
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-info"></i> Info
+            </div>
+            <div class="card-body">
+                <div class="form-horizontal">
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Name"></label>
+                        </div>
+                        <div class="col-md-9">
+                            <input asp-for="Name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Description"></label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea asp-for="Description" class="form-control">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label asp-for="Slug"></label>
+                        </div>
+                        <div class="col-md-5">
+                            <input asp-for="Slug" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
